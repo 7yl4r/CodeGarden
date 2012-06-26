@@ -1,0 +1,29 @@
+/**************************************************
+          CodeGarden Creator
+          --------------------------------
+this program controlls the evolution of the programs in the codeGarden environment.
+***************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+
+#define POPULATION_CAP 20
+#define MIN_POP 5
+
+void bubble_srt(int a[], int n);
+int main(void){
+	//check population of environment
+	//get # of programs
+	int n_of_programs = 10;	//TODO
+	if(n_of_programs < MIN_POP){	//if too small, seed with random programs
+	//TODO
+	}
+
+	//reproduce starting with most effective
+	
+	if(n_of_programs > POPULATION_CAP){
+		//delete least effective programs until desired population size or threshold performance level met
+		//TODO
+	}
+	
+
+}

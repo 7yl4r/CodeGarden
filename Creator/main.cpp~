@@ -1,0 +1,38 @@
+/**************************************************
+          CodeGarden Creator
+          --------------------------------
+this program controlls the evolution of the programs in the codeGarden environment.
+***************************************************/
+#include <iostream>
+using namespace std;
+
+#define POPULATION_CAP 20
+#define MIN_POP 5
+
+int main(void){
+	cout << "The Creator has started\n";
+	//check population of environment
+	//get # of programs
+	int n_of_programs = 10;	//TODO
+
+	if(n_of_programs < MIN_POP){	//if too small, seed with random programs
+		cout << n_of_programs << " too small\n";
+		//TODO
+	}
+	//update effectiveness stats if needed
+	//TODO
+
+	//reproduce based on effectiveness
+	//TODO
+	
+	if(n_of_programs > POPULATION_CAP){
+		//delete least effective programs until desired population size or threshold performance level met
+		cout << n_of_programs <<" too large\n";
+		//TODO
+	}
+	char c;
+	do{
+		cout << "Enter 'e' to exit..." << endl;	
+		cin >> c;
+	} while (c != 'e');
+}
