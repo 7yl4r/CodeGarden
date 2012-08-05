@@ -55,7 +55,7 @@ def genHeader( pDir ):
     s += 'progDir = \'' + pDir + '/\'\n'
     s += "\
 #read in input file & parse into array of vars\n\
-inFile = open(EnvironmentDir + '../input.txt', 'r')\n\
+inFile = open(EnvironmentDir + '../Data/input.txt', 'r')\n\
 i = 0;\n\
 inVars = []\n\
 outputs = []\n\
@@ -153,11 +153,12 @@ rounds2run = int(raw_input('\t enter number of rounds to run:'))
 roundsLeft = rounds2run
 if clearDataOnRun:
 	dataLog = open('./Creator/dataLog.txt','w')	#create new file for data
-	dataLog.write('score\n')
+	dataLog.write('generation,datetime,winner,highScore\n')
 	shutil.rmtree(ENVIRONMENT_DIR)			#delete old programs
 	os.makedirs(ENVIRONMENT_DIR)			#make new environment
 else:
 	dataLog = open('./Creator/dataLog.txt','a')	#open file for data logging
+	existingRounds = 0;	#TODO: starting rounds = num of lines in dataLog 
 while(roundsLeft > 0):	#loop this entered number of times
 	#check population of environment
 	#get # of programs
@@ -204,7 +205,7 @@ while(roundsLeft > 0):	#loop this entered number of times
 		    output.append(float(line))
 		outputF.close()
 		actual = []
-		actualF = open('./Creator/realOut.txt', 'r')
+		actualF = open('./Data/realOut.txt', 'r')
 		for line in actualF:
 		    actual.append(float(line))
 		actualF.close()
@@ -240,12 +241,12 @@ while(roundsLeft > 0):	#loop this entered number of times
 	# write to statFile
 	statFile = open('./Creator/stats.txt', 'w')
 	for stat in performance:
-	    statFile.write(str(stat) + '\n')
+		statFile.write(str(stat) + '\n')
 	statFile.close()
 	print '=== end of round', rounds2run-roundsLeft, ',\t BEST: ', bestN ,' - SCORE: ', bestScore
-        dataLog.write(str(bestScore)+'\n')
-        roundsLeft -= 1
-        if bestScore == 0:
-            print '=== CYCLE STOPPED. Perfect solution found. ==='
-            break
+	dataLog.write(str(existingRounds + rounds2run-roundsLeft) + ',' + strftime("%Y-%m-%d %H:%M:%S", gmtime()) + str(bestN) + ',' + str(bestScore)+'\n')
+	roundsLeft -= 1
+	if bestScore == 0:
+		print '=== CYCLE STOPPED. Perfect solution found. ==='
+		break
 dataLog.close()

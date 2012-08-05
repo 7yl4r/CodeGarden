@@ -1,8 +1,8 @@
-#created: 2012-06-26 00:10:49
+#created: 2012-06-28 15:37:53
 EnvironmentDir = './Environment/'
 progDir = './Environment/14/'
 #read in input file & parse into array of vars
-inFile = open(EnvironmentDir + '../input.txt', 'r')
+inFile = open(EnvironmentDir + '../Data/input.txt', 'r')
 i = 0;
 inVars = []
 outputs = []
@@ -11,8 +11,13 @@ for line in inFile:
     i += 1
 inFile.close()
 for inVar in inVars:
-	outVar = 0
+	outVar = inVar
 	# === mutatable code ===============================
+	outVar=outVar*0.178306938713
+	outVar=inVar*outVar
+	outVar=inVar-outVar
+	outVar=inVar-inVar
+	outVar=-0.0365089821749--0.0365089821749
 
 	# === end mutable code =============================
 	outputs.append(outVar)
