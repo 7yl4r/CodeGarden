@@ -4,7 +4,7 @@ For more information please contact murray.tylar@gmail.com
 
 ======
 
-In retrospect, this was a rough attempt to explore a problem very similar to that presented at the [2013 ICFP Contest](http://icfpc2013.cloudapp.net/) (excerpt below).
+This project has gone stale, but my interest in program synthesis has not. Now that I have learned quite a bit more about the topic I see this was a rough attempt to explore a problem very similar to that presented at the [2013 ICFP Contest](http://icfpc2013.cloudapp.net/) (excerpt below), but with a much more general definition of what constitutes a 'program'. 
 
     Prologue
     ~~~~~~~~
